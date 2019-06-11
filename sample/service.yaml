@@ -12,7 +12,7 @@ spec:
         autoscaling.knative.dev/target: "10"
     spec:
       containers:
-        - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:dsdk-0611
+        - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:218a0ae4
           ports:
             - name: http1
               containerPort: 8080
