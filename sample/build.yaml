@@ -2,7 +2,7 @@
 apiVersion: build.knative.dev/v1alpha1
 kind: Build
 metadata:
-  name: build-helloworld-simple-app
+  name: helloworld-go
 spec:
   serviceAccountName: build-bot
   source:
@@ -15,8 +15,7 @@ spec:
     args:
     - "--dockerfile=/workspace/Dockerfile"
     # Replace meteatamel with your actual DockerHub
-    - "--destination=registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:01"
+    - "--destination=registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:dsdk-0611"
     env:
     - name: DOCKER_CONFIG
       value: /builder/home/.docker
-

@@ -1,0 +1,21 @@
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: GitHubSource
+metadata:
+  name: helloworld-go-github-sources
+spec:
+  eventTypes:
+  - pull_request
+  ownerAndRepository: knative-sample/helloworld-go
+  accessToken:
+    secretKeyRef:
+      name: githubsecret
+      key: accessToken
+  secretToken:
+    secretKeyRef:
+      name: githubsecret
+      key: secretToken
+  sink:
+    apiVersion: serving.knative.dev/v1alpha1
+    kind: Service
+    name: helloworld-go-github-trigger
+

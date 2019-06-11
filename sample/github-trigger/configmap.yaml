@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trigger-config
+  namespace: default
+data:
+  "cicd-trigger.yaml": |-
+    apiVersion: build.knative.dev/v1alpha1
+    kind: Build
+    metadata:
+      name: build-helloworld-go
+    spec:
+      serviceAccountName: build-bot
+      source:
+        git:
+          url: https://github.com/knative-sample/helloworld-go.git
+          revision: master
+      steps:
+      - name: build-and-push
+        image: "registry.cn-hangzhou.aliyuncs.com/knative-release/kaniko-project-executor:v0.6.0"
+        args:
+        - "--dockerfile=/workspace/Dockerfile"
+        # Replace meteatamel with your actual DockerHub
+        - "--destination=registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:{{.ShortCommitid}}"
+        env:
+        - name: DOCKER_CONFIG
+          value: /builder/home/.docker
+      - name: release-service
+        image: "registry.cn-hangzhou.aliyuncs.com/knative-sample/deployer:master_aaac0255-20190606135828"
+        args:
+        - "--namespace=default"
+        - "--serivce-name=helloworld-go"
+        - "--image=registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:{{.ShortCommitid}}"
