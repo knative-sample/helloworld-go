@@ -1,0 +1,23 @@
+---
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: helloworld-go-github-trigger
+spec:
+  template:
+    spec:
+      containers:
+      - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/trigger:master_aaac0255-20190606140103
+        args:
+          - --trigger-config=/app/config/cicd-trigger.yaml
+        volumeMounts:
+        - name: config-volume 
+          mountPath: /app/config
+      serviceAccountName: knative-build
+      volumes:
+        - name: config-volume 
+          configMap:
+            name: trigger-config
+            items:
+              - key: cicd-trigger.yaml
+                path: cicd-trigger.yaml

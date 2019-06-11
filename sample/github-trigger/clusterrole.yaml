@@ -1,0 +1,20 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: knative-build
+  labels:
+    app: knative-build
+    knative: knative-build
+rules:
+- apiGroups: ["build.knative.dev"]
+  resources: ["*"]
+  verbs: ["get", "list", "create", "watch", "patch", "delete", "update"]
+- apiGroups: ["rbac.authorization.k8s.io"]
+  resources: ["roles", "rolebindings"]
+  verbs: ["get", "list", "create", "watch", "patch", "update"]
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
+  verbs: ["get", "list", "create", "watch", "patch", "update"]
+- apiGroups: ["serving.knative.dev"]
+  resources: ["services"]
+  verbs: ["get", "list", "create", "watch", "patch", "update"]
