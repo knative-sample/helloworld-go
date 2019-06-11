@@ -12,10 +12,10 @@ spec:
         autoscaling.knative.dev/target: "10"
     spec:
       containers:
-        - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:01
+        - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/helloworld-go:06d44ed7
           ports:
             - name: http1
               containerPort: 8080
           env:
             - name: TARGET
-              value: "Hello World Go "
+              value: "https://github.com/knative-sample/helloworld-go"
