@@ -29,6 +29,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		l.Info("http handler success")
 	}
+
 }
 
 func main() {
