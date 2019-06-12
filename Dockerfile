@@ -14,7 +14,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -v -o helloworld
 
 # Use a Docker multi-stage build to create a lean production image.
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
-FROM registry.cn-hangzhou.aliyuncs.com/knative-sample/alpine:3.9
+FROM registry.cn-hangzhou.aliyuncs.com/knative-sample/alpine-sh:3.9
 RUN apk add --no-cache ca-certificates
 
 # Copy the binary to the production image from the builder stage.
