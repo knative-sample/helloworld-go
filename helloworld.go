@@ -73,7 +73,8 @@ func (log *Log) Fatal(msg string)  {
 }
 
 func (log *Log) log(level, format string, a ...interface{})  {
-	ft := fmt.Sprintf("%s %s %s\n", time.Now().Format("2006-01-02 15:04:05"), level, format)
+	var cstSh, _ = time.LoadLocation("Asia/Shanghai")
+	ft := fmt.Sprintf("%s %s %s\n", time.Now().In(cstSh).Format("2006-01-02 15:04:05"), level, format)
 	fmt.Printf(ft, a...)
 }
 
