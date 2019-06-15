@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/trigger:master_aaac0255-20190606140103
+      - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/deployer-trigger:7620096e
         args:
           - --trigger-config=/app/config/cicd-trigger.yaml
         volumeMounts:
