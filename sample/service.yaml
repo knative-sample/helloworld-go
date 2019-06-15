@@ -9,6 +9,7 @@ spec:
       labels:
         app: helloworld-go
       annotations:
+        autoscaling.knative.dev/maxScale: "20"
         autoscaling.knative.dev/target: "10"
     spec:
       containers:

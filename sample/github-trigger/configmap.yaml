@@ -26,7 +26,7 @@ data:
         - name: DOCKER_CONFIG
           value: /builder/home/.docker
       - name: release-service
-        image: "registry.cn-hangzhou.aliyuncs.com/knative-sample/deployer:master_aaac0255-20190606135828"
+        image: "registry.cn-hangzhou.aliyuncs.com/knative-sample/deployer-deployer:7620096e"
         args:
         - "--namespace=default"
         - "--serivce-name=helloworld-go"
