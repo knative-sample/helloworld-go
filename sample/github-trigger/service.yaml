@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: config-volume 
           configMap:
-            name: trigger-config
+            name: helloworld-go-trigger-config
             items:
               - key: cicd-trigger.yaml
                 path: cicd-trigger.yaml

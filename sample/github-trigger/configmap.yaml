@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: trigger-config
+  name: helloworld-go-trigger-config
   namespace: default
 data:
   "cicd-trigger.yaml": |-
