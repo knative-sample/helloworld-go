@@ -1,0 +1,53 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: github-http-ext
+spec:
+  hosts:
+  - "*.github.com"
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: github-tls-ext
+spec:
+  hosts:
+  - "*.github.com"
+  ports:
+  - number: 443
+    name: tls
+    protocol: TLS
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: aliyun-tls-ext
+spec:
+  hosts:
+  - "*.aliyuncs.com"
+  - "*.aliyun.com"
+  ports:
+  - number: 443
+    name: tls
+    protocol: TLS
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: aliyun-http-ext
+spec:
+  hosts:
+  - "*.aliyuncs.com"
+  - "*.aliyun.com"
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+

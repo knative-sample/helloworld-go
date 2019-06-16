@@ -18,6 +18,7 @@
 ##  执行命令
 
 ```
+kubectl apply -f egress.yaml
 kubectl apply -f clusterrole.yaml
 kubectl apply -f clusterrolebinding.yaml
 kubectl apply -f serviceaccount.yaml
