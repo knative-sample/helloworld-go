@@ -4,7 +4,7 @@ metadata:
   name: helloworld-go-trigger-config
   namespace: default
 data:
-  "cicd-trigger.yaml": |-
+  "deployer-trigger.yaml": |-
     apiVersion: build.knative.dev/v1alpha1
     kind: Build
     metadata:

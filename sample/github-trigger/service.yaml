@@ -9,7 +9,7 @@ spec:
       containers:
       - image: registry.cn-hangzhou.aliyuncs.com/knative-sample/deployer-trigger:7620096e
         args:
-          - --trigger-config=/app/config/cicd-trigger.yaml
+          - --trigger-config=/app/config/deployer-trigger.yaml
         volumeMounts:
         - name: config-volume 
           mountPath: /app/config
@@ -19,5 +19,5 @@ spec:
           configMap:
             name: helloworld-go-trigger-config
             items:
-              - key: cicd-trigger.yaml
-                path: cicd-trigger.yaml
+              - key: deployer-trigger.yaml
+                path: deployer-trigger.yaml
