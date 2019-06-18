@@ -1,0 +1,31 @@
+{
+  "inputs": [
+    {
+      "detail": {
+        "IncludeEnv": {
+          "K_SERVICE": "helloworld-go"
+        },
+        "IncludeLabel": {},
+        "ExcludeLabel": {}
+      },
+      "type": "service_docker_stdout"
+    }
+  ],
+  "processors": [
+    {
+      "detail": {
+        "KeepSource": false,
+        "NoMatchError": true,
+        "Keys": [
+          "time",
+          "level",
+          "msg"
+        ],
+        "NoKeyError": true,
+        "Regex": "(\\d+-\\d+-\\d+ \\d+:\\d+:\\d+)\\s+(\\w+)\\s+(*)",
+        "SourceKey": "content"
+      },
+      "type": "processor_regex"
+    }
+  ]
+}
